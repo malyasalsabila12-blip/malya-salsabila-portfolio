@@ -1,69 +1,208 @@
-import Image from "next/image";
+import Link from "next/link";
+import { profile } from "@/data/profile";
+import { getFeaturedQaProjects, projects } from "@/data/projects";
+import { EvidencePill } from "@/components/Badges";
+import { ProjectCard } from "@/components/ProjectCard";
 
-export default function Home() {
+export default function HomePage() {
+  const featuredProjects = getFeaturedQaProjects();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div>
+      {/* 1. Midnight Hero */}
+      <section className="hero-night -mt-16 pt-28 pb-20 md:pt-32 md:pb-28">
+        <div className="page-container relative z-10 flex flex-col items-center text-center">
+          <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-xs font-medium text-white">
+            <span className="h-1.5 w-1.5 rounded-full bg-white" />
+            {profile.roleBadge}
           </p>
+
+          <h1 className="mt-5 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-5xl sm:leading-[1.1]">
+            {profile.heroHeadline}
+          </h1>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={profile.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-white transition hover:border-white/30 hover:bg-white/10"
+            >
+              GitHub
+            </a>
+            <a
+              href={profile.defaultResumePath}
+              download
+              className="rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-white transition hover:border-white/30 hover:bg-white/10"
+            >
+              Download CV (TXT)
+            </a>
+          </div>
+
+          {/* Stats strip */}
+          <dl className="mt-14 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
+            {profile.stats.map((stat) => (
+              <div key={stat.label}>
+                <dt className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                  {stat.value}
+                </dt>
+                <dd className="mt-1 text-xs leading-snug text-zinc-400">
+                  {stat.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* 2. Skills and tools */}
+      <section className="page-container pt-14">
+        <div className="reveal">
+          <h2 className="font-mono text-xs font-semibold uppercase tracking-wider text-zinc-500">
+            Technologies &amp; tooling used in quality work
+          </h2>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {profile.technologies.map((tech) => (
+              <li
+                key={tech}
+                className="rounded-lg border border-zinc-200 bg-white px-3 py-1.5 font-mono text-xs text-zinc-700"
+              >
+                {tech}
+              </li>
+            ))}
+          </ul>
         </div>
-      </main>
+      </section>
+
+      {/* 3. Work Experience */}
+      <section className="page-container pt-16">
+        <div className="reveal max-w-2xl">
+          <h2 className="mt-1.5 text-2xl font-bold tracking-tight text-black sm:text-3xl">
+            Work Experience
+          </h2>
+        </div>
+
+        <ol className="mt-6 space-y-4">
+          {profile.experience.map((exp) => (
+            <li
+              key={exp.period + exp.roleAndCompany}
+              className="card-surface reveal p-6 sm:p-8"
+            >
+              <p className="font-mono text-xs font-medium text-zinc-500">
+                {exp.period}
+              </p>
+
+              {exp.relatedProjects.length > 0 && (
+                <div className="mt-6 grid gap-6">
+                  {exp.relatedProjects.map((rel) => {
+                    const project = projects.find((p) => p.slug === rel.slug);
+                    if (!project) return null;
+                    return (
+                      <div key={project.slug} className="not-prose max-w-2xl">
+                        <ProjectCard project={project} />
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* 5. Featured QA Projects */}
+      <section className="page-container pt-16">
+        <div className="reveal flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+          <div className="max-w-2xl">
+            <h2 className="mt-1.5 text-2xl font-bold tracking-tight text-black sm:text-3xl">
+              Projects
+            </h2>
+            <p className="mt-1.5 text-sm leading-relaxed text-zinc-600">
+              Four projects showcasing AI-powered SQA automation, Playwright and POM-based e-commerce testing, API validation, and CI/CD.
+            </p>
+          </div>
+        </div>
+
+        <ul className="mt-6 grid gap-6">
+          {featuredProjects.map((project, index) => (
+            <li key={project.slug} className="max-w-2xl">
+              <ProjectCard project={project} indexNumber={index + 1} />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* 6. Additional Highlights */}
+      <section className="page-container pt-16">
+        <div className="reveal">
+          <p className="font-mono text-xs font-semibold uppercase tracking-wider text-zinc-700">
+            Background
+          </p>
+          <h2 className="mt-1.5 text-2xl font-bold tracking-tight text-black sm:text-3xl">
+            Additional highlights and credentials
+          </h2>
+        </div>
+
+        <div className="mt-6 grid gap-8 lg:grid-cols-12">
+          {/* Education */}
+          <div className="card-surface reveal p-6 sm:p-8 lg:col-span-7">
+            <h3 className="text-lg font-semibold text-black">Education</h3>
+            <ul className="mt-4 space-y-2 text-sm text-zinc-600">
+              {profile.education.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Top results */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-4">
+            {profile.topResults.length > 0 && (
+              <div className="space-y-4">
+                {profile.topResults.map((res) => (
+                  <div
+                    key={res.title}
+                    className="card-surface spotlight reveal p-5"
+                  >
+                    <h3 className="text-sm font-semibold text-black">
+                      {res.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-zinc-600">
+                      {res.description}
+                    </p>
+                    <div className="mt-3.5 flex flex-wrap items-center justify-between gap-2 border-t border-zinc-100 pt-3 text-xs">
+                      <EvidencePill badge={res.badge} />
+                      <Link
+                        href={`/projects/${res.evidenceSlug}`}
+                        className="font-semibold text-black hover:text-zinc-800"
+                      >
+                        Details: {res.evidenceTitle} →
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="card-surface reveal p-5">
+              <h3 className="text-sm font-semibold text-black">Certifications</h3>
+              <ul className="mt-3 space-y-2 text-sm text-zinc-600">
+                {profile.certifications.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="card-surface reveal p-5">
+              <h3 className="text-sm font-semibold text-black">Languages</h3>
+              <ul className="mt-3 space-y-2 text-sm text-zinc-600">
+                {profile.languages.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
