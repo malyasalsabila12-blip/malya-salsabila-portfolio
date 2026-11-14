@@ -142,6 +142,7 @@ export const projects: ProjectEntry[] = [
     kind: "shipped",
     status: "Built",
     previewVariant: "banking-pipeline",
+    image: "/images/gotrade-campaigns.png",
     summary:
       "Designed and maintained automated E2E regression suites for a cross-platform Flutter trading app.",
     focus:
@@ -233,7 +234,8 @@ export const projects: ProjectEntry[] = [
       ],
     },
     lessonsLearned: [],
-    visualCaption: "Illustrative overview of GoTrade's mobile QA test scope.",
+    visualCaption:
+      "GoTrade campaign visuals for U.S. stock investing, analyst signals, and TradingView integration.",
     relatedSlugs: [],
   },
   {
