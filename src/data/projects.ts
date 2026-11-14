@@ -418,6 +418,8 @@ export const projects: ProjectEntry[] = [
     kind: "shipped",
     status: "Built",
     previewVariant: "perflens",
+    image: "/images/pokeapi-logo.png",
+    imageFit: "contain",
     summary:
       "Developed a dynamic web application using the public PokeAPI to display Pokémon lists, stats, and attributes.",
     focus:
@@ -484,7 +486,7 @@ export const projects: ProjectEntry[] = [
         "Developed and tested a responsive PokeAPI web application with search, filtering, and API validation.",
     },
     lessonsLearned: [],
-    visualCaption: "Illustrative overview of the PokeAPI application test scope.",
+    visualCaption: "PokeAPI logo for the application.",
     externalLinks: [
       {
         label: "GitHub",

@@ -3,6 +3,7 @@ import { PreviewVariant } from "@/data/types";
 interface ProjectArtworkProps {
   variant: PreviewVariant;
   image?: string;
+  imageFit?: "cover" | "contain";
   title: string;
   aspectClass?: string;
 }
@@ -177,19 +178,24 @@ const variantConfig: Record<PreviewVariant, VariantMeta> = {
 export function ProjectArtwork({
   variant,
   image,
+  imageFit = "cover",
   title,
   aspectClass = "aspect-[16/9]",
 }: ProjectArtworkProps) {
   if (image) {
     return (
       <div
-        className={`relative w-full overflow-hidden rounded-xl border border-zinc-200/80 bg-black ${aspectClass}`}
+        className={`relative w-full overflow-hidden rounded-xl border border-zinc-200/80 ${
+          imageFit === "contain" ? "bg-white" : "bg-black"
+        } ${aspectClass}`}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={image}
           alt={title}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+          className={`h-full w-full ${
+            imageFit === "contain" ? "object-contain p-2" : "object-cover"
+          } transition duration-500 group-hover:scale-[1.02]`}
         />
       </div>
     );

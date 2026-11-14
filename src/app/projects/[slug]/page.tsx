@@ -98,6 +98,7 @@ async function ProjectDetailContent({ params }: ProjectPageProps) {
             <ProjectArtwork
               variant={project.previewVariant}
               image={project.image}
+              imageFit={project.imageFit}
               title={project.title}
               aspectClass="aspect-[16/8]"
             />
@@ -328,6 +329,7 @@ async function ProjectDetailContent({ params }: ProjectPageProps) {
               <ProjectArtwork
                 variant={project.previewVariant}
                 image={project.image}
+                imageFit={project.imageFit}
                 title={project.title}
               />
               <figcaption className="mt-3 max-w-3xl text-sm leading-6 text-zinc-500">

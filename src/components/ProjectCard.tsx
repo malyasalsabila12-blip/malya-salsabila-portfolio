@@ -46,6 +46,7 @@ export function ProjectCard({
             <ProjectArtwork
               variant={project.previewVariant}
               image={project.image}
+              imageFit={project.imageFit}
               title={project.title}
             />
           </Link>
