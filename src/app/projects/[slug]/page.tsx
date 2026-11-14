@@ -140,7 +140,7 @@ async function ProjectDetailContent({ params }: ProjectPageProps) {
             </div>
           </dl>
 
-          <div className="mt-4 text-xs text-zinc-400">
+          <div className="mt-4 inline-flex max-w-full rounded-lg border border-white/10 bg-black/70 px-3 py-2 text-xs text-zinc-100">
             <span>Status note: {project.roleMeta.statusNote}</span>
           </div>
         </div>
