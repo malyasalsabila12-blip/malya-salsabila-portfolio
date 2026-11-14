@@ -70,7 +70,7 @@ body {
       rgba(255, 255, 255, 0.04),
       transparent 65%
     ),
-    linear-gradient(180deg, #000000 0%, #111111 80%, var(--bg-page) 100%);
+    linear-gradient(180deg, #000000 0%, #111111 100%);
   color: var(--night-ink);
   overflow: hidden;
 }
