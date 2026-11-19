@@ -3,17 +3,27 @@ import { PreviewVariant } from "@/data/types";
 interface ProjectArtworkProps {
   variant: PreviewVariant;
   image?: string;
+  imageAlt?: string;
   imageFit?: "cover" | "contain";
   title: string;
   aspectClass?: string;
+  showTerminalOnHover?: boolean;
 }
 
 interface VariantMeta {
   accentFrom: string;
   accentTo: string;
   badge: string;
+  diagramLabel?: string;
+  footerLabel?: string;
+  minHeightClassName?: string;
+  metricClassName?: string;
+  nodeLabelClassName?: string;
   nodes: { step: string; label: string; metric: string }[];
+  staticTerminal?: boolean;
   terminalLine: string;
+  wrapNodeMetrics?: boolean;
+  wrapTerminalLine?: boolean;
 }
 
 const variantConfig: Record<PreviewVariant, VariantMeta> = {
@@ -33,13 +43,15 @@ const variantConfig: Record<PreviewVariant, VariantMeta> = {
     accentFrom: "from-zinc-500/10",
     accentTo: "to-zinc-500/10",
     badge: "CHICO · AI-DRIVEN SQA",
+    diagramLabel: "AI architecture and QA validation pipeline",
     nodes: [
-      { step: "01", label: "Test Execution", metric: "Automated" },
-      { step: "02", label: "Defect Monitoring", metric: "Automated" },
-      { step: "03", label: "SQA Workflows", metric: "AI-powered" },
-      { step: "04", label: "Testing Cycles", metric: "Accelerated" },
+      { step: "01", label: "AI Agent Core", metric: "Built from scratch" },
+      { step: "02", label: "Test Execution Engine", metric: "Automated scenarios" },
+      { step: "03", label: "Defect Detection", metric: "Anomalies + edge cases" },
+      { step: "04", label: "QA Evaluation", metric: "Reliability + stability" },
     ],
-    terminalLine: "AI-powered SQA agent -> test execution + defect monitoring",
+    staticTerminal: true,
+    terminalLine: "chico --build --test-suite --verify-defects -> PASSED",
   },
   "docs-matrix": {
     accentFrom: "from-zinc-500/10",
@@ -56,14 +68,22 @@ const variantConfig: Record<PreviewVariant, VariantMeta> = {
   "openapi-sdk": {
     accentFrom: "from-zinc-500/10",
     accentTo: "to-zinc-500/10",
-    badge: "SAUCEDEMO · PLAYWRIGHT E2E",
+    badge: "SAUCEDEMO · PLAYWRIGHT E2E SUITE",
+    diagramLabel: "Playwright E2E test suite architecture",
+    footerLabel: "AUTOMATED TEST SUITE ARCHITECTURE",
+    metricClassName: "text-[9px]",
+    nodeLabelClassName: "text-[10px]",
+    wrapNodeMetrics: true,
     nodes: [
-      { step: "01", label: "POM Framework", metric: "Maintainable" },
-      { step: "02", label: "Product Flows", metric: "Sort & filter" },
-      { step: "03", label: "Cart & Inventory", metric: "Persistence" },
-      { step: "04", label: "Checkout", metric: "E2E" },
+      { step: "01", label: "Page Object Model", metric: "Reusable Page & Locators" },
+      { step: "02", label: "Catalog & Sorting", metric: "Filter & Sort Validation" },
+      { step: "03", label: "Cart Persistence", metric: "State & Item Assertions" },
+      { step: "04", label: "Checkout & CI Report", metric: "E2E Flow + HTML Report" },
     ],
-    terminalLine: "GitHub Actions -> regression suite -> HTML report",
+    staticTerminal: true,
+    terminalLine:
+      "npx playwright test --reporter=html -> auth, sort, cart, checkout [PASSED]",
+    wrapTerminalLine: true,
   },
   "offline-sync": {
     accentFrom: "from-zinc-500/10",
@@ -80,14 +100,20 @@ const variantConfig: Record<PreviewVariant, VariantMeta> = {
   "playwright-e2e": {
     accentFrom: "from-zinc-500/10",
     accentTo: "to-zinc-500/10",
-    badge: "MALSTRO · PLAYWRIGHT E2E",
+    badge: "MALSTRO · FULL-STACK & PLAYWRIGHT E2E",
+    diagramLabel: "end-to-end build and QA pipeline",
+    footerLabel: "END-TO-END BUILD & QA PIPELINE",
+    metricClassName: "text-[9px]",
     nodes: [
-      { step: "01", label: "Fakestore API", metric: "E-commerce" },
-      { step: "02", label: "Playwright + POM", metric: "Maintainable" },
-      { step: "03", label: "Cart & Checkout", metric: "Xendit simulation" },
-      { step: "04", label: "CI Smoke Tests", metric: "GitHub Actions" },
+      { step: "01", label: "Storefront & Catalog", metric: "Built with FakeStore API" },
+      { step: "02", label: "Payment Integration", metric: "Xendit Payment Gateway" },
+      { step: "03", label: "Playwright E2E (POM)", metric: "Auth, cart & checkout" },
+      { step: "04", label: "CI Regression", metric: "GitHub Actions Pipeline" },
     ],
-    terminalLine: "E2E: authentication -> catalog -> cart -> checkout",
+    staticTerminal: true,
+    terminalLine:
+      "playwright test --project=chromium -> auth, cart, xendit-payment [PASSED]",
+    wrapTerminalLine: true,
   },
   "testops-grid": {
     accentFrom: "from-zinc-500/10",
@@ -164,23 +190,34 @@ const variantConfig: Record<PreviewVariant, VariantMeta> = {
   perflens: {
     accentFrom: "from-zinc-500/10",
     accentTo: "to-zinc-500/10",
-    badge: "POKEAPI · WEB APPLICATION",
+    badge: "POKEAPI · CUSTOM UI & QA",
+    diagramLabel: "custom UI build and API/frontend QA workflow",
+    footerLabel: "UI BUILD & API/FRONTEND QA",
+    minHeightClassName: "min-h-[300px] sm:aspect-[16/8]",
+    metricClassName: "text-[9px]",
+    nodeLabelClassName: "text-[10px]",
+    wrapNodeMetrics: true,
     nodes: [
-      { step: "01", label: "Pokémon Data", metric: "Lists & stats" },
-      { step: "02", label: "API Validation", metric: "Payloads & status" },
-      { step: "03", label: "Search & Filters", metric: "Name, type, generation" },
-      { step: "04", label: "Responsive UI", metric: "Desktop & mobile" },
+      { step: "01", label: "Custom UI Build", metric: "Built from scratch" },
+      { step: "02", label: "API & Data Validation", metric: "Status, schema & stats" },
+      { step: "03", label: "Search & Filters", metric: "Name, type & filters" },
+      { step: "04", label: "Responsive UI QA", metric: "Desktop & mobile views" },
     ],
-    terminalLine: "PokeAPI -> data validation -> searchable web application",
+    staticTerminal: true,
+    terminalLine:
+      "pokeapi-ui --validate-api --check-responsive -> lists, stats, filters [OK]",
+    wrapTerminalLine: true,
   },
 };
 
 export function ProjectArtwork({
   variant,
   image,
+  imageAlt,
   imageFit = "cover",
   title,
   aspectClass = "aspect-[16/9]",
+  showTerminalOnHover = false,
 }: ProjectArtworkProps) {
   if (image) {
     return (
@@ -192,7 +229,7 @@ export function ProjectArtwork({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={image}
-          alt={title}
+          alt={imageAlt ?? title}
           className={`h-full w-full ${
             imageFit === "contain" ? "object-contain p-2" : "object-cover"
           } transition duration-500 group-hover:scale-[1.02]`}
@@ -205,7 +242,7 @@ export function ProjectArtwork({
 
   return (
     <div
-      className={`relative w-full overflow-hidden rounded-xl border border-zinc-800/80 bg-black p-4 text-zinc-100 ${aspectClass} flex flex-col justify-between`}
+      className={`relative w-full overflow-hidden rounded-xl border border-zinc-800/80 bg-black p-4 text-zinc-100 ${aspectClass} ${meta.minHeightClassName ?? ""} flex flex-col justify-between`}
     >
       <div
         className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${meta.accentFrom} via-transparent ${meta.accentTo}`}
@@ -233,7 +270,7 @@ export function ProjectArtwork({
 
       {/* Illustrative workflow diagram */}
       <ul
-        aria-label={`Illustrative QA workflow for ${title}`}
+        aria-label={`Illustrative ${meta.diagramLabel ?? "QA workflow"} for ${title}`}
         className="relative z-10 my-auto grid grid-cols-2 gap-2 py-3 sm:grid-cols-4"
       >
         {meta.nodes.map((node) => (
@@ -244,19 +281,62 @@ export function ProjectArtwork({
             <span className="font-mono text-[10px] font-semibold text-white">
               {node.step}
             </span>
-            <p className="mt-0.5 truncate text-[11px] font-medium text-zinc-100">
+            <p
+              className={`mt-0.5 truncate font-medium ${
+                meta.nodeLabelClassName ?? "text-[11px]"
+              } text-zinc-100`}
+            >
               {node.label}
             </p>
-            <p className="mt-0.5 truncate font-mono text-[10px] text-zinc-400">
+            <p
+              className={`mt-0.5 font-mono ${
+                meta.wrapNodeMetrics
+                  ? "whitespace-normal break-words leading-3"
+                  : "truncate"
+              } ${meta.metricClassName ?? "text-[10px]"} text-zinc-400`}
+            >
               {node.metric}
             </p>
           </li>
         ))}
       </ul>
 
-      <p className="relative z-10 font-mono text-[10px] uppercase tracking-wider text-zinc-400">
-        Illustrative QA workflow
-      </p>
+      <div className="relative z-10 flex min-w-0 flex-col gap-1">
+        {meta.footerLabel ? (
+          <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-400">
+            {meta.footerLabel}
+          </p>
+        ) : !meta.staticTerminal ? (
+          <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-400">
+            Illustrative QA workflow
+          </p>
+        ) : null}
+        {meta.staticTerminal ? (
+          <p
+            className="flex min-w-0 items-start gap-1 border-t border-white/10 pt-2 font-mono text-[10px] leading-4 text-emerald-300"
+            aria-label={`Illustrative sample status: $ ${meta.terminalLine}`}
+          >
+            <span aria-hidden="true">$</span>
+            <span
+              className={`min-w-0 ${
+                meta.wrapTerminalLine ? "break-words" : "truncate"
+              }`}
+            >
+              {meta.terminalLine}
+            </span>
+          </p>
+        ) : (
+          showTerminalOnHover && (
+            <p
+              className="terminal-preview"
+              aria-label={`Illustrative terminal preview: ${meta.terminalLine}`}
+            >
+              <span aria-hidden="true">$</span>
+              <span className="terminal-command">{meta.terminalLine}</span>
+            </p>
+          )
+        )}
+      </div>
     </div>
   );
 }

@@ -137,27 +137,85 @@ body {
 }
 
 .hero-entrance > :nth-child(2) {
-  animation-delay: 80ms;
+  animation-delay: 100ms;
 }
 
 .hero-entrance > :nth-child(3) {
-  animation-delay: 160ms;
+  animation-delay: 200ms;
 }
 
 .hero-entrance > :nth-child(4) {
-  animation-delay: 240ms;
+  animation-delay: 300ms;
 }
 
 .hero-entrance > :nth-child(5) {
-  animation-delay: 320ms;
-}
-
-.hero-entrance > :nth-child(6) {
   animation-delay: 400ms;
 }
 
+.hero-entrance > :nth-child(6) {
+  animation-delay: 500ms;
+}
+
 .hero-entrance > :nth-child(7) {
-  animation-delay: 480ms;
+  animation-delay: 600ms;
+}
+
+.status-pulse {
+  position: relative;
+  flex: none;
+}
+
+.status-pulse::after {
+  position: absolute;
+  inset: -0.2rem;
+  border: 1px solid rgba(74, 222, 128, 0.75);
+  border-radius: inherit;
+  content: "";
+  animation: status-pulse 1.8s ease-out infinite;
+}
+
+@keyframes status-pulse {
+  from {
+    opacity: 0.9;
+    transform: scale(0.75);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+.tech-pill {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.tech-pill:hover {
+  transform: translateY(-2px);
+  border-color: #a1a1aa;
+  box-shadow: 0 6px 12px -10px rgba(0, 0, 0, 0.45);
+}
+
+@keyframes tech-pill-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.tech-list-motion:not(.is-visible) .tech-pill {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+.tech-list-motion.is-visible .tech-pill {
+  animation: tech-pill-enter 350ms ease-out both;
 }
 
 .workflow-node {
@@ -237,6 +295,28 @@ body {
   overflow: hidden;
 }
 
+.spotlight::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    240px circle at var(--mouse-x, 50%) var(--mouse-y, 0%),
+    rgba(24, 24, 27, 0.34),
+    transparent 72%
+  );
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
 .spotlight::after {
   content: "";
   position: absolute;
@@ -254,6 +334,52 @@ body {
 
 .spotlight:hover::after {
   opacity: 1;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+.terminal-preview {
+  display: flex;
+  min-width: 0;
+  gap: 0.35rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 0.3rem;
+  color: #a1a1aa;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 9px;
+  line-height: 1.4;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.terminal-command {
+  flex: 1 1 0;
+  width: 0;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);
+}
+
+.group:hover .terminal-preview,
+.group:focus-within .terminal-preview {
+  opacity: 1;
+}
+
+.group:hover .terminal-command,
+.group:focus-within .terminal-command {
+  animation: terminal-type 900ms steps(42, end) forwards;
+}
+
+@keyframes terminal-type {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 /* Use CSS scroll timelines so reveal effects never mutate server-rendered markup. */
@@ -289,6 +415,32 @@ body {
 
   .hero-night::after,
   .hero-entrance > * {
+    animation: none;
+  }
+
+  .status-pulse::after {
+    animation: none;
+  }
+
+  .tech-list-motion .tech-pill {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .tech-pill,
+  .terminal-preview,
+  .spotlight::before,
+  .spotlight::after {
+    transition: none;
+  }
+
+  .tech-pill:hover {
+    transform: none;
+  }
+
+  .terminal-command {
+    clip-path: none;
     animation: none;
   }
 

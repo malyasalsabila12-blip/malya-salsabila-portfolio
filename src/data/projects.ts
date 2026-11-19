@@ -64,7 +64,14 @@ export const projects: ProjectEntry[] = [
         "Designed and deployed Chico to automate test execution and defect monitoring workflows and accelerate software testing cycles.",
     },
     lessonsLearned: [],
-    visualCaption: "Illustrative overview of Chico's AI-driven SQA workflow.",
+    visualCaption:
+      "Illustrative AI architecture and QA validation pipeline for Chico.",
+    externalLinks: [
+      {
+        label: "GitHub",
+        href: "https://github.com/malyasalsabila12-blip/chico-AgenQA",
+      },
+    ],
     relatedSlugs: [],
   },
   {
@@ -141,6 +148,10 @@ export const projects: ProjectEntry[] = [
     region: "iOS and Android",
     kind: "shipped",
     status: "Built",
+    image: "/images/gotrade-campaigns.png",
+    imageAlt:
+      "GoTrade product panels featuring U.S. stock trading, analyst signals, and TradingView integration",
+    imageFit: "cover",
     previewVariant: "banking-pipeline",
     summary:
       "Designed and maintained automated E2E regression suites for a cross-platform Flutter trading app.",
@@ -234,42 +245,42 @@ export const projects: ProjectEntry[] = [
     },
     lessonsLearned: [],
     visualCaption:
-      "Illustrative QA workflow covering mobile regression, onboarding, remote configuration, and API/CI checks.",
+      "Product illustration showing GoTrade's trading app, analyst signals, and TradingView integration.",
     relatedSlugs: [],
   },
   {
     slug: "malstro-ecommerce",
     title: "Malstro",
-    category: "E-commerce QA",
+    category: "E-commerce Build & E2E QA Automation",
     region: "Web application",
     kind: "shipped",
     status: "Built",
     flagship: true,
     previewVariant: "playwright-e2e",
     summary:
-      "Built a Fakestore-backed e-commerce app with a simulated Xendit checkout.",
+      "Built an e-commerce web application from scratch powered by FakeStore API and integrated with Xendit for payment processing, backed by a maintainable Playwright (POM) E2E automation suite.",
     focus:
-      "Testing authentication, product catalog filtering, cart management, and checkout with a maintainable POM framework.",
+      "End-to-end validation covering authentication, product catalog, cart management, Xendit payment checkout flows, and automated CI smoke tests.",
     techStack: [
       "Playwright",
       "Page Object Model (POM)",
-      "Fakestore API",
+      "FakeStore API",
       "Xendit",
       "GitHub Actions",
       "End-to-End Testing",
     ],
     roleMeta: {
       myRole: "Quality Assurance Engineer",
-      context: "Fakestore API-based e-commerce application",
+      context: "Full-stack e-commerce application with Xendit payment integration",
       period: "July 2026 – September 2026",
       visibility: "Professional experience",
       statusNote: "Details reflect the project's documented scope.",
     },
     executiveSummary:
-      "Developed a dynamic web application leveraging Fakestore API for dummy e-commerce and simulated checkout with Xendit, then built Playwright E2E automation using the Page Object Model.",
+      "Built an e-commerce web application from scratch powered by FakeStore API and integrated with Xendit for payment processing, backed by a maintainable Playwright (POM) E2E automation suite.",
     problemAndConstraints: {
       overview:
-        "The work combined a simulated e-commerce checkout application with maintainable automated regression testing.",
+        "Built the e-commerce application from scratch with the FakeStore API and Xendit checkout, then added maintainable Playwright E2E automation.",
       whoWasAffected: "E-commerce authentication, catalog, cart, and checkout flows.",
       whyItWasHard:
         "The work used a scalable POM test framework and continuous smoke testing across multi-step e-commerce journeys.",
@@ -277,14 +288,14 @@ export const projects: ProjectEntry[] = [
         "Automated test suites run through GitHub Actions on deployments.",
       ],
       whatIOwned: [
-        "Designed and developed the Fakestore API-based application and simulated Xendit checkout.",
+        "Designed and developed the FakeStore API-based application and simulated Xendit checkout.",
         "Built a Playwright framework based on the POM architecture.",
         "Executed E2E regression tests for authentication, filtering, cart, and checkout.",
         "Integrated smoke tests into GitHub Actions.",
       ],
     },
     ownershipBullets: [
-      "Developed a dynamic e-commerce application leveraging the public Fakestore API.",
+      "Developed a dynamic e-commerce application leveraging the public FakeStore API.",
       "Simulated checkout with the Xendit platform.",
       "Built maintainable Playwright E2E tests using the POM architecture.",
       "Covered authentication, catalog filtering, cart management, and checkout.",
@@ -311,14 +322,15 @@ export const projects: ProjectEntry[] = [
     ],
     results: {
       summary:
-        "Created a simulated e-commerce checkout and integrated Playwright regression smoke testing into GitHub Actions.",
+        "Built the FakeStore-powered e-commerce application and simulated Xendit checkout, then integrated Playwright regression smoke testing into GitHub Actions.",
     },
     lessonsLearned: [],
-    visualCaption: "Illustrative overview of MALSTRO's Playwright test scope.",
+    visualCaption:
+      "Illustrative end-to-end build and QA pipeline for Malstro.",
     externalLinks: [
       {
         label: "GitHub",
-        href: "https://github.com/malyasalsabila/Malstro-Ecommerce",
+        href: "https://github.com/malyasalsabila12-blip/malstro",
       },
     ],
     relatedSlugs: [],
@@ -326,15 +338,15 @@ export const projects: ProjectEntry[] = [
   {
     slug: "saucedemo-playwright",
     title: "SauceDemo",
-    category: "E-commerce QA",
+    category: "E2E Test Automation",
     region: "Web application",
     kind: "shipped",
     status: "Built",
     previewVariant: "openapi-sdk",
     summary:
-      "Built Playwright E2E scripts and a scalable Page Object Model framework for core SauceDemo user journeys.",
+      "Designed and structured a Playwright end-to-end test suite using the Page Object Model pattern to automate core user journeys and regression checks on SauceDemo.",
     focus:
-      "Testing authentication, product sorting, inventory filtering and persistence, cart operations, and checkout.",
+      "Automating login, product sorting/filtering, cart state persistence, checkout flows, and CI test reporting.",
     techStack: [
       "Playwright",
       "Page Object Model (POM)",
@@ -344,17 +356,17 @@ export const projects: ProjectEntry[] = [
     ],
     roleMeta: {
       myRole: "Quality Assurance",
-      context: "SauceDemo e-commerce platform",
+      context: "Existing SauceDemo target app (testing only)",
       period: "October 2026",
       visibility: "Professional experience",
       statusNote: "Details reflect the project's documented scope.",
     },
     executiveSummary:
-      "Designed Playwright E2E scripts and a POM-based framework for SauceDemo, covering authentication user types, product sorting and filtering, cart state, checkout, CI regression, and HTML reporting.",
+      "Designed and structured a Playwright end-to-end suite around the Page Object Model, automating authentication, product sorting and filtering, cart-state persistence, checkout, CI regression, and HTML reporting against the existing SauceDemo application.",
     problemAndConstraints: {
       overview:
-        "The test scope covers end-to-end user journeys and regression automation for the SauceDemo e-commerce platform.",
-      whoWasAffected: "Authentication, inventory, cart, and checkout workflows.",
+        "Testing-only work on the existing SauceDemo application, focused on a maintainable Playwright E2E suite and regression reporting.",
+      whoWasAffected: "Login, product sorting, cart, and checkout workflows.",
       whyItWasHard:
         "Testing covered multiple authentication states, inventory persistence, and full checkout flows.",
       constraints: [
@@ -399,13 +411,13 @@ export const projects: ProjectEntry[] = [
     },
     lessonsLearned: [],
     visualCaption:
-      "Illustrative overview of SauceDemo's Playwright test scope.",
+      "Illustrative Playwright test suite architecture for the existing SauceDemo target app.",
     externalLinks: [
       {
         label: "GitHub",
-        href: "https://github.com/malyasalsabila/saucedemo-playwright",
+        href: "https://github.com/malyasalsabila12-blip/Sauce-Demo",
       },
-      { label: "Live Demo", href: "https://www.saucedemo.com/" },
+      { label: "Target App", href: "https://www.saucedemo.com/" },
     ],
     relatedSlugs: [],
   },
@@ -418,9 +430,9 @@ export const projects: ProjectEntry[] = [
     status: "Built",
     previewVariant: "perflens",
     summary:
-      "Built a responsive web app using the public PokeAPI to display Pokémon lists, stats, and attributes.",
+      "Built a custom web UI from scratch using the public PokeAPI to display Pokémon lists, stats, and attributes, paired with API response validation and frontend UI/responsiveness testing.",
     focus:
-      "Validating API responses and data integrity, and testing search, filters, responsive layouts, and data fetching.",
+      "Building the interface from scratch, validating API payloads and data accuracy, and testing search, filtering, data fetching, and responsive layouts.",
     techStack: [
       "PokeAPI",
       "API Testing",
@@ -431,22 +443,22 @@ export const projects: ProjectEntry[] = [
     ],
     roleMeta: {
       myRole: "Quality Assurance Analyst",
-      context: "Public PokeAPI-based web application",
+      context: "Custom web UI built on the public PokeAPI",
       period: "August 2025 – October 2025",
       visibility: "Professional experience",
       statusNote: "Details reflect the project's documented scope.",
     },
     executiveSummary:
-      "Developed a PokeAPI-based web application and tested API response payloads, HTTP status codes, data integrity, search and filter features, frontend data fetching, and responsive UI.",
+      "Built a custom web UI from scratch using the public PokeAPI to display Pokémon lists, stats, and attributes, and validated API responses, data accuracy, search and filtering, data fetching, and responsive behavior.",
     problemAndConstraints: {
       overview:
-        "The work combined a Pokémon information application with API validation and functional testing.",
-      whoWasAffected: "Pokémon list, stats, attribute, search, and filter features.",
+        "Built a custom PokeAPI web UI from scratch, paired with API response validation and responsive frontend QA.",
+      whoWasAffected: "Pokémon lists, stats, attributes, search, and filter features.",
       whyItWasHard:
-        "Testing covered API payload validation and responsive application behavior across desktop and mobile.",
+        "Maintaining data accuracy while testing API payloads, data fetching, search and filtering, and responsive layouts.",
       constraints: [],
       whatIOwned: [
-        "Developed a dynamic web application leveraging the public PokeAPI.",
+        "Built a custom responsive web UI from scratch using the public PokeAPI.",
         "Implemented automated and manual API testing scenarios.",
         "Developed search and filter features by name, type, and generation.",
         "Created functional test cases and API endpoint validation documentation.",
@@ -460,7 +472,7 @@ export const projects: ProjectEntry[] = [
       "Maintained test documentation and collaborated using Git.",
     ],
     qualityEngineeringIntro:
-      "Work covered API response validation, functional testing, responsive UI, and frontend data fetching.",
+      "Built the interface from scratch and validated API responses, data accuracy, frontend data fetching, and responsive UI behavior.",
     qualityDimensions: [
       {
         title: "API validation",
@@ -480,15 +492,15 @@ export const projects: ProjectEntry[] = [
     ],
     results: {
       summary:
-        "Developed and tested a responsive PokeAPI web application with search, filtering, and API validation.",
+        "Built and tested a custom responsive PokeAPI web UI with search, filtering, and API data validation.",
     },
     lessonsLearned: [],
     visualCaption:
-      "Illustrative QA workflow covering API validation, search and filtering, and responsive UI checks.",
+      "Illustrative custom UI build and API/frontend QA workflow using PokeAPI data.",
     externalLinks: [
       {
         label: "GitHub",
-        href: "https://github.com/malyasalsabila/Pokeapi-Application",
+        href: "https://github.com/malyasalsabila12-blip/pokeapi",
       },
     ],
     relatedSlugs: [],

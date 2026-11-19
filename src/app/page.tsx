@@ -3,6 +3,8 @@ import { profile } from "@/data/profile";
 import { getFeaturedQaProjects, projects } from "@/data/projects";
 import { EvidencePill } from "@/components/Badges";
 import { ProjectCard } from "@/components/ProjectCard";
+import { StatValue } from "@/components/StatValue";
+import { TechPillList } from "@/components/TechPillList";
 
 export default function HomePage() {
   const featuredProjects = getFeaturedQaProjects();
@@ -13,7 +15,7 @@ export default function HomePage() {
       <section className="hero-night -mt-16 pt-28 pb-20 md:pt-32 md:pb-28">
         <div className="page-container relative z-10 flex flex-col items-center text-center hero-entrance">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-xs font-medium text-white">
-            <span className="h-1.5 w-1.5 rounded-full bg-white" />
+            <span className="status-pulse h-1.5 w-1.5 rounded-full bg-emerald-400" />
             {profile.roleBadge}
           </p>
 
@@ -44,7 +46,7 @@ export default function HomePage() {
             {profile.stats.map((stat) => (
               <div key={stat.label}>
                 <dt className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-                  {stat.value}
+                  <StatValue value={stat.value} />
                 </dt>
                 <dd className="mt-1 text-xs leading-snug text-zinc-400">
                   {stat.label}
@@ -67,16 +69,7 @@ export default function HomePage() {
                 <h3 className="text-sm font-semibold text-zinc-800">
                   {group.label}
                 </h3>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {group.items.map((tech) => (
-                    <li
-                      key={tech}
-                      className="rounded-lg border border-zinc-200 bg-white px-3 py-1.5 font-mono text-xs text-zinc-700"
-                    >
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
+                <TechPillList items={group.items} />
               </div>
             ))}
           </div>
@@ -140,9 +133,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        <ul className="mt-6 grid gap-6">
+        <ul className="mt-6 grid grid-cols-1 gap-6">
           {featuredProjects.map((project, index) => (
-            <li key={project.slug} className="max-w-2xl">
+            <li key={project.slug} className="w-full min-w-0 max-w-2xl">
               <ProjectCard project={project} indexNumber={index + 1} />
             </li>
           ))}

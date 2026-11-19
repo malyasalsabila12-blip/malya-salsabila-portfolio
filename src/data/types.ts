@@ -51,6 +51,7 @@ export interface ProjectEntry {
   flagship?: boolean;
   /** Optional path under /public, e.g. "/images/my-project.webp". Falls back to crisp interactive architecture preview if omitted. */
   image?: string;
+  imageAlt?: string;
   imageFit?: "cover" | "contain";
   previewVariant: PreviewVariant;
   summary: string;

@@ -13,7 +13,7 @@ export default function ContactPage() {
       <section className="hero-night -mt-16 pt-28 pb-16 md:pt-32 md:pb-20">
         <div className="page-container relative z-10 hero-entrance">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-xs font-medium text-white">
-            <span className="h-1.5 w-1.5 rounded-full bg-white" />
+            <span className="status-pulse h-1.5 w-1.5 rounded-full bg-emerald-400" />
             {profile.availabilityBadge}
           </p>
 

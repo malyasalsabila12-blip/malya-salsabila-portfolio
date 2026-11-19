@@ -98,9 +98,16 @@ async function ProjectDetailContent({ params }: ProjectPageProps) {
             <ProjectArtwork
               variant={project.previewVariant}
               image={project.image}
+              imageAlt={project.imageAlt}
               imageFit={project.imageFit}
               title={project.title}
-              aspectClass="aspect-[16/8]"
+              aspectClass={
+                project.image
+                  ? "aspect-[27/16]"
+                  : project.previewVariant === "openapi-sdk"
+                    ? "min-h-[300px] sm:aspect-[16/8]"
+                    : "aspect-[16/8]"
+              }
             />
           </div>
 
@@ -329,8 +336,10 @@ async function ProjectDetailContent({ params }: ProjectPageProps) {
               <ProjectArtwork
                 variant={project.previewVariant}
                 image={project.image}
+                imageAlt={project.imageAlt}
                 imageFit={project.imageFit}
                 title={project.title}
+                aspectClass={project.image ? "aspect-[27/16]" : undefined}
               />
               <figcaption className="mt-3 max-w-3xl text-sm leading-6 text-zinc-500">
                 {project.visualCaption}

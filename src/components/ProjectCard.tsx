@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ProjectEntry } from "@/data/types";
 import { FlagshipPill, KindPill, ReadinessLine, StatusPill } from "./Badges";
 import { ProjectArtwork } from "./ProjectArtwork";
+import { SpotlightCard } from "./SpotlightCard";
 
 interface ProjectCardProps {
   project: ProjectEntry;
@@ -32,7 +33,7 @@ export function ProjectCard({
       : "Project";
 
   return (
-    <article
+    <SpotlightCard
       className={`group spotlight reveal flex h-full flex-col justify-between p-5 sm:p-6 ${
         isPlanned ? "card-dashed" : "card-surface"
       }`}
@@ -46,8 +47,13 @@ export function ProjectCard({
             <ProjectArtwork
               variant={project.previewVariant}
               image={project.image}
+              imageAlt={project.imageAlt}
               imageFit={project.imageFit}
               title={project.title}
+              aspectClass={project.image ? "aspect-[27/16]" : undefined}
+              showTerminalOnHover={
+                !isPlanned && project.previewVariant !== "mobile-agent-qa"
+              }
             />
           </Link>
         )}
@@ -138,13 +144,13 @@ export function ProjectCard({
             ))}
             <Link
               href={`/projects/${project.slug}`}
-              className="inline-flex items-center gap-1 font-semibold text-black transition group-hover:translate-x-0.5 group-hover:text-zinc-800"
+              className="inline-flex items-center gap-1 font-semibold text-black transition motion-safe:group-hover:translate-x-1 group-hover:text-zinc-800"
             >
               {ctaLabel} <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
       </div>
-    </article>
+    </SpotlightCard>
   );
 }
