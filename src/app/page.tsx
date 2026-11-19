@@ -42,13 +42,13 @@ export default function HomePage() {
           </div>
 
           {/* Stats strip */}
-          <dl className="mt-14 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 md:grid-cols-3">
+          <dl className="mt-14 grid w-full max-w-5xl grid-cols-1 gap-7 rounded-3xl border border-white/15 bg-white/[0.04] px-5 py-7 shadow-xl shadow-black/20 backdrop-blur-sm md:grid-cols-3 md:gap-4 md:px-8 md:py-9">
             {profile.stats.map((stat) => (
-              <div key={stat.label}>
-                <dt className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              <div key={stat.label} className="px-2">
+                <dt className="text-3xl font-bold tracking-tight text-white md:text-4xl">
                   <StatValue value={stat.value} />
                 </dt>
-                <dd className="mt-1 text-xs leading-snug text-zinc-400">
+                <dd className="mt-2 text-sm leading-relaxed text-zinc-400 sm:text-base">
                   {stat.label}
                 </dd>
               </div>
