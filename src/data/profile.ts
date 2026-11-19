@@ -7,7 +7,7 @@ import { ProfileConfig } from "./types";
 export const profile: ProfileConfig = {
   name: "Harfy Malya Salsabila Utami",
   initials: "HM",
-  roleBadge: "Software Quality Assurance Automation Engineer · 2 Years Experience",
+  roleBadge: "Software Quality Assurance Automation Engineer · 1+ Years Experience",
   heroHeadline:
     "QA Engineer dedicated to building reliable automation frameworks and driving software quality from manual to CI/CD pipelines.",
   heroBio:
@@ -18,7 +18,7 @@ export const profile: ProfileConfig = {
   linkedinName: "Harfy Malya Salsabila Utami",
   linkedinUrl: "https://www.linkedin.com/in/malyaqualityassurance/",
   githubUrl: "https://github.com/malyasalsabila12-blip",
-  defaultResumePath: "/resume/qa-sdet-resume.txt",
+  defaultResumePath: "/resume/qa-sdet-resume.pdf",
   availabilityBadge: "Software Quality Assurance Automation Engineer",
   education: [
     "Universitas Indonesia · Russian Literature (Bachelor's degree, in progress)",
@@ -30,37 +30,49 @@ export const profile: ProfileConfig = {
   ],
   languages: [
     "Indonesian · Native",
-    "English · A2 (Intermediate)",
-    "Russian · A1 (CEFR)",
+    "English · A2 (Elementary)",
+    "Russian · A1 (Beginner)",
   ],
   stats: [
-    { value: "2", label: "years of SQA experience" },
-    { value: "5", label: "featured QA projects" },
-    { value: "2", label: "additional automation highlights" },
+    { value: "1+", label: "years of QA automation experience" },
+    { value: "iOS + Android", label: "cross-platform Flutter E2E regression" },
+    { value: "PR CI", label: "smoke and widget checks on real-device farms" },
   ],
-  technologies: [
-    "Postman",
-    "Regression Testing",
-    "Jira",
-    "Git",
-    "GitHub Actions",
-    "CI/CD Pipelines",
-    "API Testing",
-    "AI-driven SQA Automation",
-    "GitHub",
-    "Playwright",
-    "Python",
-    "UI Automation",
-    "End-to-End Testing",
-    "Scalable Test Frameworks",
-    "Page Object Model (POM)",
+  technologyGroups: [
+    {
+      label: "Automation & Frameworks",
+      items: [
+        "Playwright",
+        "Python",
+        "UI Automation",
+        "End-to-End Testing",
+        "Scalable Test Frameworks",
+        "Page Object Model (POM)",
+      ],
+    },
+    {
+      label: "API, Tools & CI/CD",
+      items: [
+        "Postman",
+        "API Testing",
+        "GitHub Actions",
+        "CI/CD Pipelines",
+        "Git",
+        "GitHub",
+        "Jira",
+      ],
+    },
+    {
+      label: "Testing & Quality",
+      items: ["Regression Testing", "AI-driven SQA Automation"],
+    },
   ],
   experience: [
     {
       period: "October 2025 – April 2026",
-      roleAndCompany: "GoTrade",
+      roleAndCompany: "Quality Assurance Automation Engineer · GoTrade",
       description:
-        "Performed manual and automated testing for the iOS and Android trading app, maintained Flutter E2E regression suites, tracked defects, and supported release quality through API, onboarding, remote-configuration, and CI checks.",
+        "Designed and maintained Flutter E2E regression for fractional U.S.-stock trading on iOS and Android; tested 2FA and invite-token edge cases, default-off Firebase Remote Config, and API failures; integrated smoke and widget checks into pull-request CI on real-device farms.",
       relatedProjects: [
         { slug: "gotrade-automation", title: "GoTrade" },
       ],

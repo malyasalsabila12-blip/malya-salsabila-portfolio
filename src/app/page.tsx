@@ -35,12 +35,12 @@ export default function HomePage() {
               download
               className="rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-white transition hover:border-white/30 hover:bg-white/10"
             >
-              Download CV (TXT)
+              Download CV (PDF)
             </a>
           </div>
 
           {/* Stats strip */}
-          <dl className="mt-14 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
+          <dl className="mt-14 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 md:grid-cols-3">
             {profile.stats.map((stat) => (
               <div key={stat.label}>
                 <dt className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -61,16 +61,25 @@ export default function HomePage() {
           <h2 className="font-mono text-xs font-semibold uppercase tracking-wider text-zinc-500">
             Technologies &amp; tooling used in quality work
           </h2>
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {profile.technologies.map((tech) => (
-              <li
-                key={tech}
-                className="rounded-lg border border-zinc-200 bg-white px-3 py-1.5 font-mono text-xs text-zinc-700"
-              >
-                {tech}
-              </li>
+          <div className="mt-5 grid gap-5 md:grid-cols-3">
+            {profile.technologyGroups.map((group) => (
+              <div key={group.label}>
+                <h3 className="text-sm font-semibold text-zinc-800">
+                  {group.label}
+                </h3>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {group.items.map((tech) => (
+                    <li
+                      key={tech}
+                      className="rounded-lg border border-zinc-200 bg-white px-3 py-1.5 font-mono text-xs text-zinc-700"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
@@ -88,8 +97,16 @@ export default function HomePage() {
               key={exp.period + exp.roleAndCompany}
               className="card-surface reveal p-6 sm:p-8"
             >
-              <p className="font-mono text-xs font-medium text-zinc-500">
-                {exp.period}
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                <h3 className="text-base font-semibold tracking-tight text-black">
+                  {exp.roleAndCompany}
+                </h3>
+                <p className="font-mono text-xs font-medium text-zinc-500">
+                  {exp.period}
+                </p>
+              </div>
+              <p className="mt-3 max-w-4xl text-sm leading-relaxed text-zinc-600">
+                {exp.description}
               </p>
 
               {exp.relatedProjects.length > 0 && (

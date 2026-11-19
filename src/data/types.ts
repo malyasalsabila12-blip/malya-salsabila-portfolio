@@ -129,7 +129,10 @@ export interface ProfileConfig {
     value: string;
     label: string;
   }[];
-  technologies: string[];
+  technologyGroups: {
+    label: string;
+    items: string[];
+  }[];
   experience: ExperienceItem[];
   topResults: TopResultItem[];
 }

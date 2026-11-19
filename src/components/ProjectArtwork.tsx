@@ -231,12 +231,15 @@ export function ProjectArtwork({
         </span>
       </div>
 
-      {/* Pipeline node cards */}
-      <div className="relative z-10 my-auto grid grid-cols-2 gap-2 py-2 sm:grid-cols-4">
+      {/* Illustrative workflow diagram */}
+      <ul
+        aria-label={`Illustrative QA workflow for ${title}`}
+        className="relative z-10 my-auto grid grid-cols-2 gap-2 py-3 sm:grid-cols-4"
+      >
         {meta.nodes.map((node) => (
-          <div
+          <li
             key={node.step + node.label}
-            className="rounded-lg border border-white/10 bg-zinc-900/85 p-2 backdrop-blur-xs"
+            className="workflow-node rounded-lg border border-white/15 bg-zinc-900/90 p-2 backdrop-blur-xs"
           >
             <span className="font-mono text-[10px] font-semibold text-white">
               {node.step}
@@ -247,14 +250,13 @@ export function ProjectArtwork({
             <p className="mt-0.5 truncate font-mono text-[10px] text-zinc-400">
               {node.metric}
             </p>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
 
-      {/* Bottom terminal trace */}
-      <div className="relative z-10 truncate rounded-md border border-white/10 bg-black/40 px-2.5 py-1 font-mono text-[10px] text-zinc-300">
-        <span className="text-white">$</span> {meta.terminalLine}
-      </div>
+      <p className="relative z-10 font-mono text-[10px] uppercase tracking-wider text-zinc-400">
+        Illustrative QA workflow
+      </p>
     </div>
   );
 }

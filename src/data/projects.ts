@@ -10,7 +10,7 @@ export const projects: ProjectEntry[] = [
     status: "Built",
     previewVariant: "mobile-agent-qa",
     summary:
-      "Designed and deployed an AI-powered SQA agent that automates test execution and defect monitoring workflows to accelerate software testing cycles.",
+      "Designed and deployed an AI-powered SQA agent for test execution and defect-monitoring workflows.",
     focus:
       "Applying AI-driven testing strategies to test execution and defect monitoring.",
     techStack: [
@@ -142,7 +142,6 @@ export const projects: ProjectEntry[] = [
     kind: "shipped",
     status: "Built",
     previewVariant: "banking-pipeline",
-    image: "/images/gotrade-campaigns.png",
     summary:
       "Designed and maintained automated E2E regression suites for a cross-platform Flutter trading app.",
     focus:
@@ -235,7 +234,7 @@ export const projects: ProjectEntry[] = [
     },
     lessonsLearned: [],
     visualCaption:
-      "GoTrade campaign visuals for U.S. stock investing, analyst signals, and TradingView integration.",
+      "Illustrative QA workflow covering mobile regression, onboarding, remote configuration, and API/CI checks.",
     relatedSlugs: [],
   },
   {
@@ -248,7 +247,7 @@ export const projects: ProjectEntry[] = [
     flagship: true,
     previewVariant: "playwright-e2e",
     summary:
-      "Developed a Fakestore API-based e-commerce application with simulated checkout using the Xendit platform, alongside Playwright automation.",
+      "Built a Fakestore-backed e-commerce app with a simulated Xendit checkout.",
     focus:
       "Testing authentication, product catalog filtering, cart management, and checkout with a maintainable POM framework.",
     techStack: [
@@ -333,7 +332,7 @@ export const projects: ProjectEntry[] = [
     status: "Built",
     previewVariant: "openapi-sdk",
     summary:
-      "Created Playwright E2E scripts and a scalable Page Object Model framework for core SauceDemo user journeys.",
+      "Built Playwright E2E scripts and a scalable Page Object Model framework for core SauceDemo user journeys.",
     focus:
       "Testing authentication, product sorting, inventory filtering and persistence, cart operations, and checkout.",
     techStack: [
@@ -418,10 +417,8 @@ export const projects: ProjectEntry[] = [
     kind: "shipped",
     status: "Built",
     previewVariant: "perflens",
-    image: "/images/pokeapi-logo.png",
-    imageFit: "contain",
     summary:
-      "Developed a dynamic web application using the public PokeAPI to display Pokémon lists, stats, and attributes.",
+      "Built a responsive web app using the public PokeAPI to display Pokémon lists, stats, and attributes.",
     focus:
       "Validating API responses and data integrity, and testing search, filters, responsive layouts, and data fetching.",
     techStack: [
@@ -486,7 +483,8 @@ export const projects: ProjectEntry[] = [
         "Developed and tested a responsive PokeAPI web application with search, filtering, and API validation.",
     },
     lessonsLearned: [],
-    visualCaption: "PokeAPI logo for the application.",
+    visualCaption:
+      "Illustrative QA workflow covering API validation, search and filtering, and responsive UI checks.",
     externalLinks: [
       {
         label: "GitHub",

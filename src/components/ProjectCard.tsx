@@ -80,9 +80,14 @@ export function ProjectCard({
           {project.summary}
         </p>
 
+        <p className="mt-3 text-xs leading-relaxed text-zinc-600">
+          <span className="font-semibold text-zinc-800">Outcome:</span>{" "}
+          {project.results.summary}
+        </p>
+
         {/* Focus */}
         <p className="mt-3 text-xs leading-relaxed text-zinc-500">
-          <span className="font-semibold text-zinc-700">Focus:</span>{" "}
+          <span className="font-semibold text-zinc-700">Test scope:</span>{" "}
           {project.focus}
         </p>
 
