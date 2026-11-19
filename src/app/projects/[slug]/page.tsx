@@ -65,7 +65,7 @@ async function ProjectDetailContent({ params }: ProjectPageProps) {
     <div>
       {/* Midnight Hero */}
       <section className="hero-night -mt-16 pt-28 pb-16 md:pt-32 md:pb-20">
-        <div className="page-container relative z-10">
+        <div className="page-container relative z-10 hero-entrance">
           <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-300">
             <Link
               href="/"
