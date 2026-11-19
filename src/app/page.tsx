@@ -61,18 +61,9 @@ export default function HomePage() {
       <section className="page-container pt-14">
         <div className="reveal">
           <h2 className="font-mono text-xs font-semibold uppercase tracking-wider text-zinc-500">
-            Technologies &amp; tooling used in quality work
+            Skills and tools
           </h2>
-          <div className="mt-5 grid gap-5 md:grid-cols-3">
-            {profile.technologyGroups.map((group) => (
-              <div key={group.label}>
-                <h3 className="text-sm font-semibold text-zinc-800">
-                  {group.label}
-                </h3>
-                <TechPillList items={group.items} />
-              </div>
-            ))}
-          </div>
+          <TechPillList groups={profile.technologyGroups} />
         </div>
       </section>
 

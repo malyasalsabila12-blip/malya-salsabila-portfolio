@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --bg-page: #ffffff;
+  --bg-page: #f7f7f7;
   --bg-surface: #ffffff;
   --bg-subtle: #f5f5f5;
   --ink-primary: #000000;
@@ -34,6 +34,15 @@ html {
 
 body {
   background-color: var(--bg-page);
+  background-image:
+    radial-gradient(
+      ellipse 60rem 36rem at 50% 0%,
+      rgba(0, 0, 0, 0.045),
+      transparent 72%
+    ),
+    linear-gradient(to right, rgba(0, 0, 0, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.022) 1px, transparent 1px);
+  background-size: auto, 72px 72px, 72px 72px;
   color: var(--ink-primary);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   text-rendering: optimizeLegibility;
@@ -62,15 +71,15 @@ body {
   background-color: var(--night-bg);
   background-image: radial-gradient(
       80% 60% at 18% 0%,
-      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.09),
       transparent 65%
     ),
     radial-gradient(
       65% 55% at 85% 12%,
-      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.05),
       transparent 65%
     ),
-    linear-gradient(180deg, #000000 0%, #111111 100%);
+    linear-gradient(135deg, #050505 0%, #141414 52%, #080808 100%);
   color: var(--night-ink);
   overflow: hidden;
 }
@@ -95,15 +104,15 @@ body {
   inset: 0;
   background-image: linear-gradient(
       to right,
-      rgba(148, 163, 184, 0.055) 1px,
+      rgba(255, 255, 255, 0.045) 1px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      rgba(148, 163, 184, 0.055) 1px,
+      rgba(255, 255, 255, 0.045) 1px,
       transparent 1px
     );
-  background-size: 40px 40px;
+  background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 90% 75% at 50% 15%, #000 35%, transparent 100%);
   pointer-events: none;
 }
@@ -185,7 +194,62 @@ body {
   }
 }
 
+.tech-marquee {
+  overflow: hidden;
+  padding-block: 0.15rem;
+}
+
+.tech-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: tech-marquee-scroll 30s linear infinite;
+}
+
+.tech-marquee-group {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  flex: none;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding-right: 0.5rem;
+}
+
+.tech-marquee-category {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tech-marquee-label {
+  flex: none;
+  color: #71717a;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tech-marquee-items {
+  display: flex;
+  width: max-content;
+  flex: none;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+
+.tech-marquee:hover .tech-marquee-track,
+.tech-marquee:focus-within .tech-marquee-track,
+.tech-list-motion:not(.is-visible) .tech-marquee-track {
+  animation-play-state: paused;
+}
+
 .tech-pill {
+  flex: none;
+  white-space: nowrap;
   transition:
     transform 180ms ease,
     border-color 180ms ease,
@@ -196,6 +260,12 @@ body {
   transform: translateY(-2px);
   border-color: #a1a1aa;
   box-shadow: 0 6px 12px -10px rgba(0, 0, 0, 0.45);
+}
+
+@keyframes tech-marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes tech-pill-enter {
@@ -221,6 +291,11 @@ body {
 .workflow-node {
   position: relative;
   z-index: 1;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .workflow-node::after {
@@ -273,7 +348,7 @@ body {
 
 .card-surface:hover {
   border-color: var(--line-strong);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: 0 8px 28px -12px rgba(15, 23, 42, 0.08);
 }
 
@@ -282,13 +357,18 @@ body {
   background-color: rgba(255, 255, 255, 0.72);
   border: 1.5px dashed #cbd5e1;
   border-radius: 1rem;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .card-dashed:hover {
   background-color: #ffffff;
   border-color: #94a3b8;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px -12px rgba(15, 23, 42, 0.08);
 }
 
 .spotlight {
@@ -338,6 +418,52 @@ body {
 
 .spotlight:hover::before {
   opacity: 1;
+}
+
+.spotlight:hover .workflow-node,
+.spotlight:focus-within .workflow-node {
+  animation: workflow-step-highlight 650ms ease-out both;
+}
+
+.spotlight:hover .workflow-node:nth-child(2),
+.spotlight:focus-within .workflow-node:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.spotlight:hover .workflow-node:nth-child(3),
+.spotlight:focus-within .workflow-node:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+.spotlight:hover .workflow-node:nth-child(4),
+.spotlight:focus-within .workflow-node:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+@keyframes workflow-step-highlight {
+  0%,
+  100% {
+    background-color: rgba(24, 24, 27, 0.9);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  35% {
+    background-color: rgba(39, 39, 42, 0.98);
+    border-color: rgba(212, 212, 216, 0.75);
+    box-shadow: 0 6px 12px -10px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+  }
+}
+
+.project-arrow {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+.spotlight:hover .project-arrow,
+.spotlight:focus-within .project-arrow {
+  transform: translateX(5px);
 }
 
 .terminal-preview {
@@ -428,11 +554,54 @@ body {
     animation: none;
   }
 
+  .tech-marquee {
+    overflow: visible;
+  }
+
+  .tech-marquee-track {
+    width: 100%;
+    animation: none;
+    transform: none;
+  }
+
+  .tech-marquee-group {
+    display: grid;
+    width: 100%;
+    gap: 1rem;
+    padding-right: 0;
+  }
+
+  .tech-marquee-category {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .tech-marquee-items {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .tech-marquee-group[aria-hidden="true"] {
+    display: none;
+  }
+
   .tech-pill,
   .terminal-preview,
+  .project-arrow,
+  .workflow-node,
   .spotlight::before,
   .spotlight::after {
     transition: none;
+  }
+
+  .spotlight:hover .project-arrow,
+  .spotlight:focus-within .project-arrow {
+    transform: none;
+  }
+
+  .spotlight:hover .workflow-node,
+  .spotlight:focus-within .workflow-node {
+    animation: none;
   }
 
   .tech-pill:hover {

@@ -144,9 +144,12 @@ export function ProjectCard({
             ))}
             <Link
               href={`/projects/${project.slug}`}
-              className="inline-flex items-center gap-1 font-semibold text-black transition motion-safe:group-hover:translate-x-1 group-hover:text-zinc-800"
+              className="inline-flex items-center gap-1 font-semibold text-black transition-colors group-hover:text-zinc-800"
             >
-              {ctaLabel} <span aria-hidden="true">→</span>
+              {ctaLabel}{" "}
+              <span className="project-arrow" aria-hidden="true">
+                →
+              </span>
             </Link>
           </div>
         </div>

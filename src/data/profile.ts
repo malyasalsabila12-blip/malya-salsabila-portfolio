@@ -7,7 +7,7 @@ import { ProfileConfig } from "./types";
 export const profile: ProfileConfig = {
   name: "Harfy Malya Salsabila Utami",
   initials: "HM",
-  roleBadge: "Software Quality Assurance Automation Engineer · 1+ Years Experience",
+  roleBadge: "Software Quality Assurance Automation Engineer · 2 Years Experience",
   heroHeadline:
     "QA Engineer dedicated to building reliable automation frameworks and driving software quality from manual to CI/CD pipelines.",
   heroBio:
@@ -34,7 +34,7 @@ export const profile: ProfileConfig = {
     "Russian · A1 (Beginner)",
   ],
   stats: [
-    { value: "1+", label: "years of QA automation experience" },
+    { value: "2", label: "years of QA automation experience" },
     { value: "iOS + Android", label: "cross-platform Flutter E2E regression" },
     { value: "PR CI", label: "smoke and widget checks on real-device farms" },
   ],
