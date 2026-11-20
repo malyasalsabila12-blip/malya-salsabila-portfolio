@@ -124,9 +124,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        <ul className="mt-6 grid grid-cols-1 gap-6">
+        <ul className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
           {featuredProjects.map((project, index) => (
-            <li key={project.slug} className="w-full min-w-0 max-w-2xl">
+            <li key={project.slug} className="w-full min-w-0">
               <ProjectCard project={project} indexNumber={index + 1} />
             </li>
           ))}
