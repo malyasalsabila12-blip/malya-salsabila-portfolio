@@ -12,7 +12,7 @@ export default function HomePage() {
   return (
     <div>
       {/* 1. Midnight Hero */}
-      <section className="hero-night -mt-16 pt-28 pb-20 md:pt-32 md:pb-28">
+      <section className="hero-night -mt-16 pt-20 pb-16 md:pt-24 md:pb-20">
         <div className="page-container relative z-10 flex flex-col items-center text-center hero-entrance">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-xs font-medium text-white">
             <span className="status-pulse h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -42,13 +42,13 @@ export default function HomePage() {
           </div>
 
           {/* Stats strip */}
-          <dl className="mt-14 grid w-full max-w-5xl grid-cols-1 gap-7 rounded-3xl border border-white/15 bg-white/[0.04] px-5 py-7 shadow-xl shadow-black/20 backdrop-blur-sm md:grid-cols-3 md:gap-4 md:px-8 md:py-9">
+          <dl className="mt-10 grid w-full max-w-4xl grid-cols-1 gap-6 px-5 py-6 md:grid-cols-3 md:gap-4 md:px-6 md:py-7">
             {profile.stats.map((stat) => (
               <div key={stat.label} className="px-2">
-                <dt className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+                <dt className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                   <StatValue value={stat.value} />
                 </dt>
-                <dd className="mt-2 text-sm leading-relaxed text-zinc-400 sm:text-base">
+                <dd className="mt-1.5 text-xs leading-relaxed text-zinc-400 sm:text-sm">
                   {stat.label}
                 </dd>
               </div>
