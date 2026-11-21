@@ -187,8 +187,18 @@ export default function HomePage() {
             <div className="card-surface reveal p-5">
               <h3 className="text-sm font-semibold text-black">Certifications</h3>
               <ul className="mt-3 space-y-2 text-sm text-zinc-600">
-                {profile.certifications.map((item) => (
-                  <li key={item}>{item}</li>
+                {profile.certifications.map((certification) => (
+                  <li key={certification.title}>
+                    <a
+                      href={certification.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-medium text-zinc-700 transition hover:text-black hover:underline"
+                    >
+                      {certification.title}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>

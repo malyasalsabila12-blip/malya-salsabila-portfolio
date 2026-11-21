@@ -25,8 +25,14 @@ export const profile: ProfileConfig = {
     "SMK Taman Siswa · Software Engineering · 2021–2024",
   ],
   certifications: [
-    "Software Testing · Udemy",
-    "Software Quality Assurance · MySkill",
+    {
+      title: "Software Testing · Udemy",
+      url: "https://drive.google.com/file/d/1pQXybxT-HdoLq7qNT5bWYtQx-WHldvkI/view?usp=drive_link",
+    },
+    {
+      title: "Software Quality Assurance · MySkill",
+      url: "https://drive.google.com/file/d/1lOBRxON7tuzBbssUinujR74AKrT3QGV8/view?usp=drive_link",
+    },
   ],
   languages: [
     "Indonesian · Native",

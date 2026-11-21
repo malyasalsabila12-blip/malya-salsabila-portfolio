@@ -124,7 +124,10 @@ export interface ProfileConfig {
   defaultResumePath: string;
   availabilityBadge: string;
   education: string[];
-  certifications: string[];
+  certifications: {
+    title: string;
+    url: string;
+  }[];
   languages: string[];
   stats: {
     value: string;
